@@ -110,7 +110,6 @@ public class HookSoHelper {
         if (pkgList.size() > 0) {
             for (PackageInfo pi : pkgList) {
                 if (pi.applicationInfo.publicSourceDir.startsWith("/data/app/" + BuildConfig.APPLICATION_ID)) {
-                    //data/app/com.lyh.nkddemo-YuNFiNvInJyE3ahHYBXAQw==/base.apk
                     String path = pi.applicationInfo.publicSourceDir.
                             replace("base.apk", "lib/arm/libLVmp.so");
                     CLogUtils.e("getMySoPath 对应的路径是" + path);

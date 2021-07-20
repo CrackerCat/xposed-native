@@ -231,7 +231,6 @@ void *fake_dlopen(const char *filename, int flags) {
         char buf[512] = {0};
         void *handle = NULL;
         //sysmtem
-        ///system/lib/com.kejian.one|libTest.so
         strcpy(buf, kSystemLibDir);
         strcat(buf, filename);
         //  log_err("路径变为 %s", buf);

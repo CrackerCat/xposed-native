@@ -44,7 +44,6 @@ public class HookMain implements IXposedHookLoadPackage {
     private Class bin;
     //存放 这个 app全部的 classloader
     public static ArrayList<ClassLoader> AppAllCLassLoaderList = new ArrayList<>();
-    private Activity mActivity;
 
 
     @Override
@@ -109,6 +108,7 @@ public class HookMain implements IXposedHookLoadPackage {
     }
 
     private void hookAttach() {
+
         XposedHelpers.findAndHookMethod(Application.class, "attach", Context.class, new XC_MethodHook() {
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
@@ -119,6 +119,7 @@ public class HookMain implements IXposedHookLoadPackage {
                 CLogUtils.e("拿到classloader");
             }
         });
+
         XposedHelpers.findAndHookMethod(Activity.class,
                 "onCreate",
                 Bundle.class, new XC_MethodHook() {
@@ -128,11 +129,6 @@ public class HookMain implements IXposedHookLoadPackage {
                 if (isNeedHookNative) {
                     intoMySo(null);
                 }
-            }
-            @Override
-            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                super.beforeHookedMethod(param);
-                mActivity = (Activity) param.thisObject;
             }
         });
 

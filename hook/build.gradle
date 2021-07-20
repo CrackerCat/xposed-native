@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.huruwo.xposednative"
-        minSdkVersion 21 //核心 如果不缩小版本看不到.so文件
+        minSdkVersion 21 //核心 如果不缩小版本看不到.so文件 dvm和art
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

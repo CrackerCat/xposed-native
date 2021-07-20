@@ -23,10 +23,6 @@ jstring parse::char2jstring(JNIEnv *env, const char *pat) {
     return (jstring)(env)->NewObject(strClass, ctorID, bytes, encoding);
 }
 
-
-
-
-
 string parse::jstring2str(JNIEnv *env, jstring jstr) {
     char*   rtn   =   NULL;
     jclass   clsstring   =   env->FindClass("java/lang/String");
@@ -46,7 +42,6 @@ string parse::jstring2str(JNIEnv *env, jstring jstr) {
     free(rtn);
     return   stemp;
 }
-
 
 //字符串分割函数
 vector<string> Split(const string &str, const string &pattern) {

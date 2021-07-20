@@ -26,13 +26,9 @@ JNIEXPORT jstring JNICALL
 Java_com_huruwo_behook_MainActivity_md5(JNIEnv *env, jobject thiz, jstring str) {
     //将jstring转化成jstring类型
     const string &basicString = parse::jstring2str(env, str);
-
     MyMD5 md5 = MyMD5(basicString+secret);
-
     std::string md5Result = md5.hexdigest();
-
     LOG(ERROR) << " MD5 返回结果  "<< md5Result;
-
     //将char *类型转化成jstring返回给Java层
     return env->NewStringUTF(md5Result.c_str());
 }
